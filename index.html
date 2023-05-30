@@ -1,0 +1,64 @@
+<!-- QUESTION #1. Explain what a REST API is. What makes an API "RESTful"? -->
+    REST API stands for Representational State Transfer & Application Programming Interface. A RESTful API allows two computers to communicate over the web. An example would be a user requesting information from google.com and ther server sending back data to the user. 
+
+
+<!-- QUESTION #2. What is Node.js and why is it often used when building server-side applications? -->
+    Node.js is an open-source, cross platform (Windows, Mac OS X, Linux, Unix, etc.) runtime environment for building scalable server-side networking applications. An example of a good use case would be Real-time Chats because of its ability to be single-threaded and ansynchronous.
+
+<!-- QUESTION #3. Express.js is a popular framework used in conjunction with Node.js. What are some of the key features of Express.js that make it useful for building web servers? -->
+    One good feature of Express.js is that it only requires developers to use javascript to develope web applications. Another reason that Express.js is so popular is because of the availablity of many different built-in tools, framworks and libraries.   
+
+<!-- QUESTION #4. In Express.js, what is middleware and how is it used? -->
+    The middleware is a set of functions that execute during the processing of HTTP requests recieved by an Express application. It can either terminate the request or forward the request. There are three standard params; req, res and next. The first two are objects and the last is to call the next function if there is one available.
+
+
+<!-- QUESTION #5. In terms of HTTP verbs, what is the difference between GET, POST, PUT, PATCH, and DELETE? When would you use each in the context of a RESTful API? -->
+    These are the 5 most common HTTP methods for sending and retrieving data from a server;
+    Get : Retrieves data.
+    Post: Sends data.
+    Put: Updates the request body of the data. 
+    Patch: Updates specific changes to the data.  
+    Delete: Deletes data. 
+
+
+
+<!-- QUESTION #6. How would you handle parameters in the URL with Express.js? Provide an example. -->
+    Parameters are followed after the question mark symbol, seperated by an equal sign to make a key value pair relationship. Parameters can be strung together by using the ampersand.
+
+    example:   www.ohsnap.com/itsgoindown?who=Raiders&Superbowl=2024
+
+
+<!-- QUESTION #7. How can you handle error situations when building an Express.js API? -->
+    The simplest way of handling errors in Express applications is by putting the error handling logic in the individual route handler functions. We can use a try-catch block for intercepting the error condition before invoking the logic for handling the error.
+
+    example:    app.get('/vegetables', async (req, res) => {
+                    try {
+                const foundVegetables = await Vegetable.find({})
+                res.render('vegetables/Index', {
+                    vegetables: foundVegetables
+                    })  
+                    } catch (error) {
+                res.status(400).send({ message: error.message })
+                    }
+                })
+
+
+<!-- QUESTION #8. When building a RESTful API with Express.js, how would you structure your routes for a resource like items? What would the endpoints look like for performing CRUD (Create, Read, Update, Delete) operations? -->
+    The acronym INDUCES for structure;
+        I = Index 
+        N = New 
+        D = Delete 
+        U = Update 
+        C = Create  
+        E = Edit 
+        S = Show  
+
+
+<!-- How would you parse incoming request bodies in Express.js? Provide an example of how you might handle a JSON payload. -->
+    Using the middleware function express.json would handle the payload of JSON data. 
+
+    example:   app.use(express.json())
+
+
+<!-- How can testing be implemented for a RESTful API built with Node and Express? Provide an example of a test case for one of your API endpoints. -->
+      You can test an API with popular frameworks like Mocha along with the Chai library.            
